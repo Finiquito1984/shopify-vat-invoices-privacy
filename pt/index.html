@@ -29,10 +29,14 @@
       <li>A extensão nunca vê nem guarda a sua palavra-passe da Shopify.</li>
       <li>Todo o processamento (ler encomendas, aplicar o tratamento de IVA, criar PDF, CSV e o ZIP) acontece localmente no browser.</li>
       <li>Os pedidos de rede para ler encomendas vão apenas para o admin Shopify em que já está autenticado, e só quando inicia uma leitura.</li>
+      <li>A verificação VIES opcional (abaixo) envia apenas o código do país e o NIF de um cliente à Comissão Europeia, e só quando clica.</li>
     </ul>
 
     <h2>Dados guardados no seu dispositivo</h2>
-    <p>A extensão guarda, apenas no armazenamento local da extensão: as definições do vendedor (dados da empresa, logótipo, numeração e mapeamentos contabilísticos); o estado da numeração de faturas e notas de crédito; um contador mensal para o limite gratuito; o estado do plano, quando o Pro estiver ativo; e os dois últimos lotes de encomendas para poder voltar a gerar. Os lotes mais antigos são apagados automaticamente. Pode apagar estes dados removendo a extensão.</p>
+    <p>A extensão guarda, apenas no armazenamento local da extensão: as definições do vendedor (dados da empresa, logótipo, numeração e mapeamentos contabilísticos); o estado da numeração de faturas e notas de crédito; um contador mensal para o limite gratuito; o estado do plano, quando o Pro estiver ativo; os dois últimos lotes de encomendas para poder voltar a gerar; o último período e as opções de saída escolhidos (padrão do nome dos ficheiros, formatos de exportação); e os resultados das verificações VIES durante 24 horas. Os lotes mais antigos são apagados automaticamente. Pode apagar estes dados removendo a extensão.</p>
+
+    <h2>Verificação de NIF no VIES (opcional)</h2>
+    <p>Na pré-visualização das faturas pode clicar em <strong>Verificar</strong> (ou <strong>Verificar todos os NIF B2B no VIES</strong>) para confirmar o número de IVA de um cliente empresarial da UE. A extensão envia então <strong>apenas o código do país e o número de IVA</strong> (por exemplo <code>FR</code> + <code>40303265045</code>) diretamente do seu browser para o serviço oficial VIES da Comissão Europeia em <code>https://ec.europa.eu/taxation_customs/vies/</code>. Não é enviado nome, morada, encomenda nem fatura do cliente, e nada passa por nós. A Comissão Europeia trata o pedido ao abrigo da sua própria declaração de privacidade do VIES. A resposta (válido / inválido / indisponível, e o nome registado se o VIES o devolver) fica no armazenamento local da extensão durante 24 horas para não verificar o mesmo número duas vezes. O Chrome pede-lhe autorização uma vez para contactar este serviço; se recusar, não é feita nenhuma verificação.</p>
 
     <h2>Pagamentos</h2>
     <p>Se comprar o Pro, o pagamento é tratado pela <a href="https://extensionpay.com">ExtensionPay</a>, ao abrigo da sua própria política de privacidade. A ExtensionPay (e o respetivo processador de pagamentos, a Stripe) pode receber o seu endereço de e-mail e dados de pagamento para processar a compra e verificar a licença. Nunca recebemos os dados do seu cartão. A extensão recebe apenas um estado pago/não pago.</p>
@@ -53,7 +57,7 @@
         <tr><td><code>https://extensionpay.com/*</code></td><td>Verificar a licença Pro e, se escolher Atualizar, abrir a página de pagamento da ExtensionPay. Nenhum dado de encomenda ou fatura é enviado à ExtensionPay.</td></tr>
       </tbody>
     </table>
-    <p>Pode ser pedida uma autorização opcional para o serviço de reencaminhamento quando envia uma mensagem. Não é usada ao gerar faturas.</p>
+    <p>Duas autorizações opcionais só são pedidas quando usa a funcionalidade correspondente: <code>https://api.web3forms.com/*</code> quando envia uma mensagem (serviço de reencaminhamento) e <code>https://ec.europa.eu/taxation_customs/vies/*</code> quando clica numa verificação VIES (envia apenas o código do país e o NIF). Nenhuma é usada ao gerar faturas.</p>
 
     <h2>Utilização limitada</h2>
     <p>A informação recebida é usada apenas para o propósito único da extensão (gerar faturas IVA, notas de crédito e exportações contabilísticas a partir das suas próprias encomendas Shopify) e para ler as mensagens que escolher enviar. Não vendemos, transferimos nem usamos dados para publicidade, avaliação de crédito ou qualquer outro fim não relacionado.</p>
