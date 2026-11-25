@@ -29,10 +29,14 @@
       <li>The extension never sees or stores your Shopify password.</li>
       <li>All processing (reading orders, applying VAT treatments, building PDFs, CSVs and the ZIP) happens locally in your browser.</li>
       <li>Network requests for order reading go only to the Shopify admin you are already signed in to, and only when you start a read.</li>
+      <li>The optional VIES check (below) sends only a customer's country code and VAT number to the European Commission, and only when you click it.</li>
     </ul>
 
     <h2>Data stored on your device</h2>
-    <p>The extension stores, in your browser's local extension storage only: your seller settings (business details, logo, numbering and accounting mappings); invoice and credit-note numbering state; a monthly counter for the free-plan limit; your plan status from the payment provider once Pro is active; and the last two order batches so you can re-generate. Older batches are deleted automatically. You can delete this data by removing the extension.</p>
+    <p>The extension stores, in your browser's local extension storage only: your seller settings (business details, logo, numbering and accounting mappings); invoice and credit-note numbering state; a monthly counter for the free-plan limit; your plan status from the payment provider once Pro is active; and the last two order batches so you can re-generate; your last chosen period and output options (file-name pattern, export formats); and VIES check results for 24 hours. Older batches are deleted automatically. You can delete this data by removing the extension.</p>
+
+    <h2>VIES VAT number check (optional)</h2>
+    <p>In the invoice preview you can click <strong>Check</strong> (or <strong>Check all B2B VAT numbers in VIES</strong>) to verify a business customer's EU VAT number. The extension then sends <strong>only the country code and the VAT number</strong> (for example <code>FR</code> + <code>40303265045</code>) directly from your browser to the European Commission's official VIES service at <code>https://ec.europa.eu/taxation_customs/vies/</code>. No customer name, address, order or invoice data is sent, and nothing passes through us. The European Commission processes the request under its own privacy statement for VIES. The answer (valid / not valid / unavailable, and the registered name if VIES returns it) is kept in your browser's local extension storage for 24 hours so the same number is not checked twice. Chrome asks you once for permission to contact this service; if you decline, no check is made.</p>
 
     <h2>Payments</h2>
     <p>If you buy Pro, payment is handled by <a href="https://extensionpay.com">ExtensionPay</a>, under its own privacy policy. ExtensionPay (and its payment processor, Stripe) may receive your email address and payment details to process the purchase and verify your licence. We never receive your card details. The extension only receives a yes/no paid status.</p>
@@ -53,7 +57,7 @@
         <tr><td><code>https://extensionpay.com/*</code></td><td>Check your Pro licence and, if you choose Upgrade, open the ExtensionPay payment page. No order or invoice data is sent to ExtensionPay.</td></tr>
       </tbody>
     </table>
-    <p>Optional, one-time access may be requested for the form-forwarding service when you submit a message. It is not used when generating invoices.</p>
+    <p>Two optional permissions are requested only when you use the matching feature: <code>https://api.web3forms.com/*</code> when you submit a message (form-forwarding service), and <code>https://ec.europa.eu/taxation_customs/vies/*</code> when you click a VIES check (sends only the country code and VAT number). Neither is used when generating invoices.</p>
 
     <h2>Limited use</h2>
     <p>Information received is used only to provide the extension's single purpose (generating VAT invoices, credit notes and accounting exports from your own Shopify orders) and to read messages you choose to send. We do not sell, transfer, or use data for advertising, creditworthiness or any unrelated purpose.</p>
