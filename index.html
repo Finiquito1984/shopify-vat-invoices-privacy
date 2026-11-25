@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — EU VAT Invoices for Shopify</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html">EU VAT Invoices for Shopify</a>
+    <nav>
+      <a href="index.html" aria-current="page">English</a>
+      <a href="pt/index.html">Português</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Privacy Policy — EU VAT Invoices for Shopify</h1>
+    <p class="muted">Last updated 25 November 2026.</p>
+
+    <p><strong>EU VAT Invoices for Shopify</strong> ("the extension") is an independent browser extension published by Artur Santos. It is not affiliated with, endorsed by, or sponsored by Shopify, Intuit (QuickBooks) or Xero.</p>
+
+    <h2>What the extension does</h2>
+    <p>When you click the extension icon on your Shopify admin Orders page and press <strong>Read orders</strong>, the extension reads the orders you selected from the Shopify admin tab you have open, using the session you are already signed in with. It then builds invoice and credit-note PDFs and accounting exports on your computer. You can also import a Shopify Orders export CSV instead of reading the admin directly.</p>
+
+    <h2>Data we collect</h2>
+    <p><strong>None of your Shopify order data is collected by us.</strong> We do not operate a server for invoice generation. Your orders, invoices, customer details, VAT numbers, seller settings and Shopify credentials are never sent to us.</p>
+    <ul>
+      <li>The extension never sees or stores your Shopify password.</li>
+      <li>All processing (reading orders, applying VAT treatments, building PDFs, CSVs and the ZIP) happens locally in your browser.</li>
+      <li>Network requests for order reading go only to the Shopify admin you are already signed in to, and only when you start a read.</li>
+    </ul>
+
+    <h2>Data stored on your device</h2>
+    <p>The extension stores, in your browser's local extension storage only: your seller settings (business details, logo, numbering and accounting mappings); invoice and credit-note numbering state; a monthly counter for the free-plan limit; your plan status from the payment provider once Pro is active; and the last two order batches so you can re-generate. Older batches are deleted automatically. You can delete this data by removing the extension.</p>
+
+    <h2>Payments</h2>
+    <p>If you buy Pro, payment is handled by <a href="https://extensionpay.com">ExtensionPay</a>, under its own privacy policy. ExtensionPay (and its payment processor, Stripe) may receive your email address and payment details to process the purchase and verify your licence. We never receive your card details. The extension only receives a yes/no paid status.</p>
+    <p>Pro costs 9.99 USD per month or 79 USD per year. There is no quarterly plan. The free tier remains 25 new documents per month; re-downloading already numbered documents stays free.</p>
+
+    <h2>Contact form</h2>
+    <p>The form below (and the same form in the extension Settings) sends your subject, message, and optional reply address through a form-forwarding service (<a href="https://web3forms.com">Web3Forms</a>, under that service's privacy policy) so the publisher can read your message. This page does not publish a contact email address. If you include a reply address, it is used only to answer you.</p>
+
+    <h2>Permissions</h2>
+    <table>
+      <thead><tr><th>Permission</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><code>activeTab</code></td><td>Access the Shopify admin tab only after you click the extension icon there.</td></tr>
+        <tr><td><code>scripting</code></td><td>Run the order reader in that tab when you press the button.</td></tr>
+        <tr><td><code>https://admin.shopify.com/*</code></td><td>Read your own orders through your logged-in Shopify admin session.</td></tr>
+        <tr><td><code>storage</code> and <code>unlimitedStorage</code></td><td>Keep settings, numbering, licence status and the current order batch on your device. Large batches can exceed the default 10 MB storage limit.</td></tr>
+        <tr><td><code>downloads</code></td><td>Save the generated ZIP to your computer.</td></tr>
+        <tr><td><code>https://extensionpay.com/*</code></td><td>Check your Pro licence and, if you choose Upgrade, open the ExtensionPay payment page. No order or invoice data is sent to ExtensionPay.</td></tr>
+      </tbody>
+    </table>
+    <p>Optional, one-time access may be requested for the form-forwarding service when you submit a message. It is not used when generating invoices.</p>
+
+    <h2>Limited use</h2>
+    <p>Information received is used only to provide the extension's single purpose (generating VAT invoices, credit notes and accounting exports from your own Shopify orders) and to read messages you choose to send. We do not sell, transfer, or use data for advertising, creditworthiness or any unrelated purpose.</p>
+
+    <h2>Changes</h2>
+    <p>We will update this page if the extension's data practices change. To contact the publisher, use the form below or the Send message form in the extension Settings.</p>
+
+    <section class="card" id="contact">
+      <h2>Send message</h2>
+      <p>Write a subject and a message. You may optionally leave a reply address.</p>
+      <form id="contact-form" data-sent="Message sent" data-failed="Not sent, try again">
+        <label>Subject<input id="subject" type="text" required maxlength="200"></label>
+        <label>Message<textarea id="message" required maxlength="8000"></textarea></label>
+        <label>Reply email (optional)<input id="reply" type="email" maxlength="200" autocomplete="email"></label>
+        <div class="hp" aria-hidden="true"><input id="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" id="send">Send message</button>
+        <p id="status" class="muted" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <footer>Not affiliated with or endorsed by Shopify, Intuit (QuickBooks) or Xero. Shopify, QuickBooks and Xero are trademarks of their respective owners.</footer>
+  <script src="site-config.js"></script>
+  <script src="form.js"></script>
+</body>
+</html>
